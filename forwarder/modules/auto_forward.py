@@ -11,7 +11,7 @@ def forward(update, context):
     for chat in TO_CHATS:
         to_chat_name = context.bot.get_chat(chat).title or context.bot.get_chat(chat).first_name
         try:
-            context.bot.forward_message(chat_id=chat, from_chat_id=from_chat_id, message_id=message.message_id)
+            context.bot.copy_message(chat_id=chat, from_chat_id=from_chat_id, message_id=message.message_id)
         
         except:
             LOGGER.exception("Error while forwarding message from chat \"{}\" to chat \"{}\".".\
